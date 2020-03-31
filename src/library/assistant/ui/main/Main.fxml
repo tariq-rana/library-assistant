@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.assistant.ui.main.MainController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#closeMain" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Add">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#loadAddBook" text="Add Book" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadAddMember" text="Add Member" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="View">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#loadBookList" text="View Book" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadMemberList" text="View Member" />
+                        <MenuItem mnemonicParsing="false" onAction="#fullScreenView" text="Full Screen" />
+                     </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <right>
+            <VBox prefHeight="475.0" prefWidth="147.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#loadAddMember" prefHeight="85.0" prefWidth="154.0" text="Add Member">
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/add_mem.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadAddBook" prefHeight="85.0" prefWidth="154.0" text="Add Book">
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/add_book.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" layoutX="10.0" layoutY="75.0" mnemonicParsing="false" onAction="#loadMemberList" prefHeight="85.0" prefWidth="154.0" text="View Members">
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/list_mem.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" layoutX="10.0" layoutY="75.0" mnemonicParsing="false" onAction="#loadBookList" prefHeight="85.0" prefWidth="154.0" text="View Books">
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/list_book.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" layoutX="10.0" layoutY="205.0" mnemonicParsing="false" onAction="#loadSettings" prefHeight="85.0" prefWidth="154.0" text="Settings">
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/settings.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </right>
+         <center>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab text="Book Issue">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="394.0" prefWidth="588.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox alignment="CENTER" fillHeight="false" prefHeight="162.0" prefWidth="588.0">
+                                       <children>
+                                          <TextField fx:id="searchByBookId" onAction="#loadBookInfo" promptText="Book ID">
+                                             <HBox.margin>
+                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                             </HBox.margin></TextField>
+                                          <VBox alignment="CENTER" prefHeight="80.0" prefWidth="355.0">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Label fx:id="bookTitle" alignment="CENTER" prefHeight="17.0" prefWidth="374.0" text="Book Name" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="bookAuthor" alignment="CENTER" layoutX="10.0" layoutY="42.0" prefHeight="17.0" prefWidth="374.0" text="Author" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label fx:id="bookIsAvailable" alignment="CENTER" layoutX="10.0" layoutY="53.0" prefHeight="17.0" prefWidth="374.0" text="IsAvailable" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER" fillHeight="false" layoutX="10.0" layoutY="10.0" prefHeight="162.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="searchByMemberId" onAction="#loadMemberInfo" promptText="Member ID">
+                                             <HBox.margin>
+                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <VBox alignment="CENTER" prefHeight="80.0" prefWidth="355.0">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Label fx:id="memberName" alignment="CENTER" prefHeight="17.0" prefWidth="374.0" text="Member Name" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="memberMobile" alignment="CENTER" layoutX="10.0" layoutY="42.0" prefHeight="17.0" prefWidth="374.0" text="Contact" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Button fx:id="issueBtn" mnemonicParsing="false" onAction="#issueBook" text="Issue" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Renew / Submission">
+                  <content>
+                    <AnchorPane>
+                           <children>
+                              <BorderPane layoutX="117.0" layoutY="14.0" prefHeight="394.0" prefWidth="588.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <top>
+                                    <TextField fx:id="bookIdRenewSub" alignment="CENTER" onAction="#loadBookListRenewSub" promptText="Enter Book ID" BorderPane.alignment="CENTER">
+                                       <BorderPane.margin>
+                                          <Insets bottom="10.0" left="200.0" right="200.0" top="10.0" />
+                                       </BorderPane.margin>
+                                    </TextField>
+                                 </top>
+                                 <center>
+                                    <ListView fx:id="issueListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <padding>
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                       </padding>
+                                    </ListView>
+                                 </center>
+                                 <bottom>
+                                    <HBox alignment="CENTER" prefHeight="62.0" prefWidth="588.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <Button fx:id="renewBtn" mnemonicParsing="false" onAction="#renewBook" text="Renew" />
+                                          <Button fx:id="subBtn" layoutX="278.0" layoutY="48.0" mnemonicParsing="false" onAction="#subBook" text="Submission">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </bottom>
+                              </BorderPane>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>
